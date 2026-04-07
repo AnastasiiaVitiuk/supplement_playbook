@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplement Assessment - Quick Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .questionnaire-container {
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .questionnaire-container h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .question-group {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question-group:last-child {
+            border-bottom: none;
+        }
+
+        .question-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .question-group input[type="radio"],
+        .question-group input[type="checkbox"] {
+            margin-right: 0.8rem;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .question-group label:hover {
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+        }
+
+        .submit-section {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            justify-content: center;
+        }
+
+        .btn-secondary {
+            background: #ddd;
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #ccc;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #eee;
+            border-radius: 2px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 33%;
+            transition: width 0.3s ease;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.htm" class="logo">💊 Supplement Planner</a>
+            <div class="nav-links">
+                <a href="index.htm#about">About</a>
+                <a href="index.htm#benefits">Benefits</a>
+                <a href="index.htm#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="questionnaire-container">
+        <a href="index.htm" class="back-link">← Back to Home</a>
+        
+        <h2>Your Supplement Assessment</h2>
+        <p style="color: var(--text-color); margin-bottom: 2rem;">Answer a few quick questions to get personalised supplement recommendations.</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+        <form id="questionnaire-form">
+            <!-- Question 1: Health Goals -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What are your primary health goals?</h3>
+                <label>
+                    <input type="checkbox" name="health_goal" value="energy">
+                    Increase Energy & Vitality
+                </label>
+                <label>
+                    <input type="checkbox" name="health_goal" value="immunity">
+                    Boost Immune System
+                </label>
+                <label>
+                    <input type="checkbox" name="health_goal" value="joint_health">
+                    Joint & Bone Health
+                </label>
+                <label>
+                    <input type="checkbox" name="health_goal" value="digestion">
+                    Improve Digestion
+                </label>
+                <label>
+                    <input type="checkbox" name="health_goal" value="mental_clarity">
+                    Mental Clarity & Focus
+                </label>
+                <label>
+                    <input type="checkbox" name="health_goal" value="sleep">
+                    Better Sleep Quality
+                </label>
+            </div>
+
+            <!-- Question 2: Activity Level -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your activity level?</h3>
+                <label>
+                    <input type="radio" name="activity_level" value="sedentary">
+                    Sedentary (Little to no exercise)
+                </label>
+                <label>
+                    <input type="radio" name="activity_level" value="light">
+                    Light (1-3 days per week)
+                </label>
+                <label>
+                    <input type="radio" name="activity_level" value="moderate">
+                    Moderate (4-5 days per week)
+                </label>
+                <label>
+                    <input type="radio" name="activity_level" value="active">
+                    Very Active (6-7 days per week)
+                </label>
+            </div>
+
+            <!-- Question 3: Dietary Preferences -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">Do you have any dietary restrictions?</h3>
+                <label>
+                    <input type="checkbox" name="dietary" value="vegetarian">
+                    Vegetarian
+                </label>
+                <label>
+                    <input type="checkbox" name="dietary" value="vegan">
+                    Vegan
+                </label>
+                <label>
+                    <input type="checkbox" name="dietary" value="gluten_free">
+                    Gluten-Free
+                </label>
+                <label>
+                    <input type="checkbox" name="dietary" value="dairy_free">
+                    Dairy-Free
+                </label>
+                <label>
+                    <input type="checkbox" name="dietary" value="none">
+                    No Restrictions
+                </label>
+            </div>
+
+            <!-- Question 4: Age Group -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your age group?</h3>
+                <label>
+                    <input type="radio" name="age_group" value="18-25">
+                    18-25
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="26-35">
+                    26-35
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="36-50">
+                    36-50
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="50+">
+                    50+
+                </label>
+            </div>
+
+            <!-- Question 5: Contact Info -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+
+            <!-- Submit Buttons -->
+            <div class="submit-section">
+                <a href="index.htm" class="btn btn-secondary">Cancel</a>
+                <button type="submit" class="btn btn-primary btn-large">Get My Recommendations</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Supplement Planner. All rights reserved.</p>
+            <p>Consult with a healthcare professional before starting any new supplements.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('questionnaire-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {
+                health_goals: formData.getAll('health_goal'),
+                activity_level: formData.get('activity_level'),
+                dietary_restrictions: formData.getAll('dietary'),
+                age_group: formData.get('age_group'),
+                name: formData.get('name'),
+                email: formData.get('email')
+            };
+
+            // Log the data (you can send this to a server)
+            console.log('Form submitted:', data);
+            
+            // Show success message or redirect to results page
+            alert(`Thank you, ${data.name}! Your personalised supplement plan has been generated. Check your email for the recommendations.`);
+            
+            // Redirect to home or results page
+            // window.location.href = 'results.htm';
+        });
+    </script>
+</body>
+</html>
