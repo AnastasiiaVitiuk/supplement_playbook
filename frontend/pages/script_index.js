@@ -1,5 +1,1 @@
-const about = document.querySelector('.about');
-const navMenu = document.querySelector('.nav-menu');
-about.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+// Clicking on about, why us nad contact on nav. bar for redirectn gthem to appropriate sections 

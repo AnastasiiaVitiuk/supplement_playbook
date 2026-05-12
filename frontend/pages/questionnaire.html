@@ -180,7 +180,58 @@
                 </label>
             </div>
 
-            <!-- Question 2: Activity Level -->
+            <!-- Question 2: Age Group -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your age group?</h3>
+                <label>
+                    <input type="radio" name="age_group" value="18-25">
+                    18-25
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="26-35">
+                    26-35
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="36-50">
+                    36-50
+                </label>
+                <label>
+                    <input type="radio" name="age_group" value="50+">
+                    50+
+                </label>
+            </div>
+
+
+            <!-- Question 3: Sex Group -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your sex group?</h3>
+                <label>
+                    <input type="radio" name="sex_group" value="male">
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="sex_group" value="female">
+                    Female
+                </label>
+
+            <!-- Question 4: Height Group -->
+            <div class="question-group">
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your height ?</h3>
+                <label>
+                    <input type="radio" name="height_group" value="under-165cm">
+                    Under 165cm
+                </label>
+                <label>
+                    <input type="radio" name="height_group" value="165cm-175cm">
+                    165cm - 175cm
+                </label>
+                <label>
+                    <input type="radio" name="height_group" value="over-175cm">
+                    Over 175cm
+                </label>
+            </div>
+
+            <!-- Question 5: Activity Level -->
             <div class="question-group">
                 <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your activity level?</h3>
                 <label>
@@ -201,7 +252,7 @@
                 </label>
             </div>
 
-            <!-- Question 3: Dietary Preferences -->
+            <!-- Question 6: Dietary Preferences -->
             <div class="question-group">
                 <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">Do you have any dietary restrictions?</h3>
                 <label>
@@ -226,28 +277,32 @@
                 </label>
             </div>
 
-            <!-- Question 4: Age Group -->
+            <!--Question 7: Current Symptoms-->
             <div class="question-group">
-                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">What is your age group?</h3>
+                <h3 style="color: var(--dark-color); margin-bottom: 1.2rem; font-size: 1.1rem;">Do you have any current undesired effects?</h3>
                 <label>
-                    <input type="radio" name="age_group" value="18-25">
-                    18-25
+                    <input type="checkbox" name="symptoms" value="fatigue">
+                    Fatigue
                 </label>
                 <label>
-                    <input type="radio" name="age_group" value="26-35">
-                    26-35
+                    <input type="checkbox" name="symptoms" value="joint_pain">
+                    Joint Pain
                 </label>
                 <label>
-                    <input type="radio" name="age_group" value="36-50">
-                    36-50
+                    <input type="checkbox" name="symptoms" value="digestive_issues">
+                    Digestive Issues
                 </label>
                 <label>
-                    <input type="radio" name="age_group" value="50+">
-                    50+
+                    <input type="checkbox" name="symptoms" value="none">
+                    No Undesired Effects
+                </label>
+                <!--client answer field-->
+                <label>
+                    <input type="text" name="symptoms_other" placeholder="Please specify">
                 </label>
             </div>
 
-            <!-- Question 5: Contact Info -->
+            <!-- Question 8: Contact Info -->
             <div class="form-group">
                 <label for="name">Full Name</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -278,13 +333,18 @@
         document.getElementById('questionnaire-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // <!--TODO: Connect database for form saving feature-->
             // Collect form data
             const formData = new FormData(this);
             const data = {
                 health_goals: formData.getAll('health_goal'),
-                activity_level: formData.get('activity_level'),
-                dietary_restrictions: formData.getAll('dietary'),
                 age_group: formData.get('age_group'),
+                sex_group: formData.get('sex_group'),
+                height_group: formData.get('height_group'),
+                activity_level: formData.get('activity_level'),
+                dietary: formData.getAll('dietary'),
+                symptoms: formData.getAll('symptoms'),
+                symptoms_other: formData.get('symptoms_other'),
                 name: formData.get('name'),
                 email: formData.get('email')
             };
